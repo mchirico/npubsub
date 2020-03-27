@@ -4,6 +4,7 @@ import { expect } from 'chai';
 import request from 'supertest';
 import { getApp } from '../src/app';
 
+
 describe('/api/v1/test', () => {
   it('works', async () => {
     const app = getApp();
@@ -24,3 +25,14 @@ describe('/', () => {
     expect(res.status).to.equal(200);
   });
 });
+describe('/push/topic', () => {
+  it(' topic', async () => {
+    const app = getApp();
+    const res = await request(app).get('/push/topic');
+    const { ok } = res.body;
+
+    console.log(ok);
+    expect(ok).to.equal(true);
+  });
+});
+

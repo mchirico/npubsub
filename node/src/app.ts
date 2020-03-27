@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { getS$ } from './septa/septa';
+import { publishMessage } from './pubsub/pubsub';
 
 export const getApp = () => {
   const app = express();
@@ -10,6 +11,12 @@ export const getApp = () => {
   app.use(cors());
 
   app.get('/api/v1/test', (_, res) => {
+    res.json({ ok: true });
+  });
+
+  app.get('/push/topic', (_, res) => {
+    const data = { webiste: '/push/topic' };
+    publishMessage('topic-npubsub', JSON.stringify(data)).catch();
     res.json({ ok: true });
   });
 
