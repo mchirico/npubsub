@@ -12,7 +12,7 @@
     "test:lint": "eslint --ext .ts ./src",
     "test:lint:fix": "npm run test:lint -- --fix",
     "test": "npm run test:lint && npm run test:unit",
-    "coverage": "nyc mocha --recursive -r tsconfig-paths/register -r ts-node/register -r source-map-support/register tests/**/*.spec.ts && codecov -p ../ -t ${CODECOV_TOKEN}"
+    "coverage": "nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --recursive -r tsconfig-paths/register -r ts-node/register -r source-map-support/register tests/**/*.spec.ts && codecov -p ../ -t ${CODECOV_TOKEN}"
   },
   "nodemonConfig": {
     "ignore": [
