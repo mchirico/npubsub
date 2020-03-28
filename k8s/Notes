@@ -1,0 +1,25 @@
+https://cloud.google.com/dataflow/docs/guides/templates/provided-streaming#cloudpubsubsubscriptiontobigquery
+
+
+
+
+gcloud container clusters create pig --enable-network-policy  -m e2-small --async
+
+
+
+
+gcloud container clusters create pig --enable-network-policy  -m e2-micro --async
+gcloud container clusters get-credentials pig
+
+
+gcloud container clusters delete pig --async
+
+gcloud container clusters update \
+pig \
+--update-addons=CloudRun=ENABLED,HttpLoadBalancing=ENABLED
+
+
+gcloud container clusters create pig \
+  --addons=HttpLoadBalancing,CloudRun \
+  --machine-type=n1-standard-2 \
+  --enable-stackdriver-kubernetes

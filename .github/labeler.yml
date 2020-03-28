@@ -1,0 +1,13 @@
+# Add 'repo' label to any root file changes
+repo:
+  - ./*
+
+node/package:
+  - ./node/package.json
+
+node/tsconfig:
+  - ./node/tsconfig.json
+
+
+test:
+  - ./node/src/**/*.spec.js

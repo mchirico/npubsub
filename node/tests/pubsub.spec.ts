@@ -78,6 +78,26 @@ describe('Rxjs add', function() {
   });
 });
 
+describe('Rxjs add 2', function() {
+  it('Rxjs 2', function(done) {
+    this.timeout(4000);
+
+    const getListenAsObservable = bindCallback(listenForMessages);
+    const result = getListenAsObservable('sub-npubsub2', 2);
+    result.subscribe(
+      x => {
+        console.log(x);
+        done();
+      },
+      e => {
+        console.error(e);
+        done();
+      },
+    );
+  });
+});
+
+
 
 describe('listen', function() {
   it('p 0', function(done) {
