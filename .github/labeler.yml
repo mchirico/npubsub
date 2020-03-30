@@ -8,6 +8,12 @@ node/package:
 node/tsconfig:
   - ./node/tsconfig.json
 
+storage:
+  - ./node/src/storage/*
+
+src:
+  - ./node/src/**/*
+
 
 test:
   - ./node/src/**/*.spec.js
