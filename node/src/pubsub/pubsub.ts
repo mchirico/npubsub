@@ -2,7 +2,7 @@ import { PubSub } from '@google-cloud/pubsub';
 
 // Ref: https://cloud.google.com/pubsub/docs/publisher
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = './credentials/pubsub.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = './credentials/access.json';
 const client = new PubSub();
 
 export async function publishMessage(topic: string, data: string) {

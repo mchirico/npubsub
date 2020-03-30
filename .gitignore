@@ -48,7 +48,7 @@ credentials/*.js
 */credentials/*.json
 ./**/credentials/*.js
 **/*/pubsub.json
-
+**/*/*.pem
 # TypeScript v1 declaration files
 typings/
 

@@ -42,7 +42,7 @@ jobs:
       run: |
        cd node
        mkdir -p credentials
-       gsutil cp gs://nodesepta/credentials/pubsub.json ./credentials/pubsub.json
+       gsutil cp gs://nodesepta/credentials/access.json ./credentials/access.json
 
 
     # Node Make
