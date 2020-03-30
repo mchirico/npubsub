@@ -1,19 +1,32 @@
 # Add 'repo' label to any root file changes
+
+node:
+  - node/**/*
+
 repo:
   - ./*
 
+node/datastore:
+  - node/src/datastore/**/*
+
+node/septa:
+  - node/src/septa/**/*
+
+github/workflow:
+  - .github/**/*
+
 node/package:
-  - ./node/package.json
+  - node/package.json
 
 node/tsconfig:
-  - ./node/tsconfig.json
+  - node/tsconfig.json
 
 storage:
-  - ./node/src/storage/*
+  - node/src/storage/*
 
 src:
-  - ./node/src/**/*
+  - node/src/**/*
 
 
 test:
-  - ./node/src/**/*.spec.js
+  - node/src/**/*.spec.js
