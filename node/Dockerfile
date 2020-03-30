@@ -13,7 +13,7 @@ RUN npm run build
 FROM node:current-alpine
 COPY --from=build /workspace /workspace
 COPY --from=build /access.json /access.json
-ENV GOOGLE_APPLICATION_CREDENTIALS = '/pubsub.json'
+ENV GOOGLE_APPLICATION_CREDENTIALS = '/access.json'
 WORKDIR /workspace
 RUN npm rebuild grpc
 ENTRYPOINT ["node"]
