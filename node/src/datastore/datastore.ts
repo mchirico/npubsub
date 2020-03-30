@@ -2,10 +2,12 @@ import { Datastore } from '@google-cloud/datastore';
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS = './credentials/access.json';
 
+// Ref: https://cloud.google.com/datastore/docs/concepts/queries
+
 const datastore = new Datastore();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function addEntry(kind: string, name: string, data: Record<string, any>) {
+export function addEntry(kind: string[], data: Record<string, any>) {
   // The kind for the new entity
   //const kind = 'Task';
 
@@ -13,7 +15,7 @@ export function addEntry(kind: string, name: string, data: Record<string, any>) 
   //const name = 'sampletask1';
 
   // The Cloud Datastore key for the new entity
-  const pKey = datastore.key([kind, name]);
+  const pKey = datastore.key(kind);
 
   // Prepares the new entity
   const doc = {
@@ -26,8 +28,8 @@ export function addEntry(kind: string, name: string, data: Record<string, any>) 
   // console.log(`Saved ${task.key.name}: ${task.data.description}`);
 }
 
-export function query(kind: string) {
-  const query = datastore.createQuery(kind);
+export function query(kind: string, name: string) {
+  const query = datastore.createQuery(kind).filter('__key__', '=', datastore.key([kind, name]));
 
   //const [tasks] = await datastore.runQuery(query);
   return datastore.runQuery(query);
