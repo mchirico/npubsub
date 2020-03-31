@@ -39,3 +39,10 @@ export function query(kind: string, name: string) {
   //   console.log(taskKey.id, task);
   // });
 }
+
+export function queryAncestor(kind: string, names: string[]) {
+  const ancestorKey = datastore.key(names);
+  const query = datastore.createQuery(kind).hasAncestor(ancestorKey);
+
+  return datastore.runQuery(query);
+}
