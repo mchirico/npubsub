@@ -43,6 +43,7 @@ jobs:
        cd node
        mkdir -p credentials
        gsutil cp gs://nodesepta/credentials/access.json ./credentials/access.json
+       gsutil cp gs://nodesepta/credentials/firebase-adminsdk.json ./credentials/firebase-adminsdk.json
 
 
     # Node Make
