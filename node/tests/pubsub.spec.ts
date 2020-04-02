@@ -21,7 +21,7 @@ describe('Create Sub', () => {
 
 describe('Create topic', function() {
   it('Create junk2', function(done) {
-    this.timeout(14000);
+    this.timeout(24000);
     CreateTopic('junk2')
       .then(r => {
         console.log('done');
