@@ -1,4 +1,4 @@
-import { addEntry, query, queryAncestor } from '../src/datastore/datastore';
+import { addEntry, query, queryAncestor, filter, filter2 } from '../src/datastore/datastore';
 import { expect } from 'chai';
 
 describe('Datastore', function() {
@@ -14,6 +14,10 @@ describe('Datastore', function() {
       {
         name: 'created',
         value: new Date(),
+      },
+      {
+        name: 'collaborators',
+        value: ['alice', 'bob'],
       },
       {
         name: 'done',
@@ -78,6 +82,10 @@ describe('Datastore', function() {
         value: 4,
       },
       {
+        name: 'collaborators',
+        value: ['alice', 'bob'],
+      },
+      {
         name: 'tags',
         value: ['fun', 'programming'],
       },
@@ -133,11 +141,15 @@ describe('Datastore', function() {
       },
       {
         name: 'tags',
-        value: ['work', 'programming'],
+        value: ['work', 'development'],
       },
       {
         name: 'percent_complete',
         value: 100.0,
+      },
+      {
+        name: 'collaborators',
+        value: ['alice', 'bob'],
       },
       {
         name: 'description',
@@ -205,11 +217,11 @@ describe('Datastore', function() {
     this.timeout(14000);
 
     const kind = 'Task';
-    const names = ['User',
+    const ancestor = ['User',
       'alice',
       'TaskList',
       'default'];
-    queryAncestor(kind, names)
+    queryAncestor(kind, ancestor)
       .then(r => {
         const [recs] = r;
         recs.forEach(rec => {
@@ -224,5 +236,44 @@ describe('Datastore', function() {
         done();
       });
   });
+
+
+  it('filter', function(done) {
+    this.timeout(14000);
+    filter()
+      .then(r => {
+        const [recs] = r;
+        recs.forEach(rec => {
+          console.log('rec: ', rec);
+          expect(rec.stuff).to.contain('stuff');
+        });
+        console.log('done');
+        done();
+      })
+      .catch(r => {
+        console.log(r.code);
+        done();
+      });
+  });
+
+  // TODO: Something is wrong with this example..
+  it('filter2', function(done) {
+    this.timeout(14000);
+    filter2()
+      .then(r => {
+        const [recs] = r;
+        recs.forEach(rec => {
+          console.log('rec: ', rec);
+          expect(rec.stuff).to.contain('stuff');
+        });
+        console.log('done');
+        done();
+      })
+      .catch(r => {
+        console.log(r.code);
+        done();
+      });
+  });
+
 
 });

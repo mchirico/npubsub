@@ -13,3 +13,13 @@ Note, it is using Firestore
 Note the following, when trying to get data from Firebase...
 ::TODO document this
 <img src='https://user-images.githubusercontent.com/755710/77974602-a0325b80-72c5-11ea-875c-1523768581a4.png' width=880/>
+
+
+
+
+## Firebase
+
+```
+
+npm install firebase-admin --save
+```
