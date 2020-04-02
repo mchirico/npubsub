@@ -15,6 +15,7 @@ const params = {
   clientC509CertUrl: serviceAccount.client_x509_cert_url,
 };
 
+let adminApp: admin.app.App;
 export function App() {
   if (!admin.apps.length) {
     const app = admin.initializeApp({
@@ -22,6 +23,8 @@ export function App() {
       databaseURL: 'https://septapig.firebaseio.com',
       //databaseURL: databaseConfig.databaseURL;
     });
+    adminApp = app;
     return app;
   }
+  return adminApp;
 }
