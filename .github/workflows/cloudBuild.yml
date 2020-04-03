@@ -47,6 +47,36 @@ jobs:
        gsutil cp gs://nodesepta/credentials/firebase-adminsdk.json ./credentials/firebase-adminsdk.json
 
 
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
+          && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
+          && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
+          && cd /tmp \
+          && unzip chromedriver_linux64.zip \
+          && rm -rf chromedriver_linux64.zip \
+          && sudo mv chromedriver /usr/local/bin/chromedriver \
+          && sudo chmod +x /usr/local/bin/chromedriver \
+          && chromedriver --version
+
+    # ng command for Angular
+    - name: ng command for Angular
+      run: |
+         npm install -g @angular/cli
+
+
+    # Angular install and test
+    - name: Angular install and test
+      run: |
+         cd angular
+         npm install
+         npm run test -- --no-watch --code-coverage --no-progress --browsers=ChromeHeadlessCI
+         npm run coverage
+      env:
+        CI: true
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+
     # Node Make
     - run: |
         echo "Node Project Make"

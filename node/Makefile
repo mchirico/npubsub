@@ -5,6 +5,7 @@ TAG = latest
 
 docker-build:
 	rm -rf build
+	(cd ../angular && ./updateDist.sh)
 	docker build --no-cache -t gcr.io/$(PROJECT)/$(NAME):$(TAG) -f Dockerfile .
 
 

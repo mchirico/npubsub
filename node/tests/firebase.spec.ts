@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { App } from '../src/firebase/firebase';
 
+// Ref: https://firebase.google.com/docs/firestore/query-data/queries
 describe('Cities', function() {
   it('Create basic data', function(done) {
     this.timeout(14000);
