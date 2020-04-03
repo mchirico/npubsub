@@ -14,10 +14,10 @@ describe('/api/v1/test', () => {
     expect(ok).to.equal(true);
   });
 });
-describe('/', () => {
+describe('/trainview', () => {
   it(' trainview', async () => {
     const app = getApp();
-    const res = await request(app).get('/');
+    const res = await request(app).get('/trainview');
     const { lat } = res.body[0];
 
     console.log(res.body[0].lat);
