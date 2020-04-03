@@ -1,4 +1,20 @@
+
+
+
+
 # Angular
+
+```
+ng g component navbar/navbar
+
+ng g component navpages/auth
+ng g component navpages/page0
+ng g component navpages/page1
+ng g component navpages/main
+ng g component navpages/search
+
+```
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
 
