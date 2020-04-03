@@ -27,6 +27,14 @@ storage:
 src:
   - node/src/**/*
 
+angular/root:
+  - angular/*.json
+  - angular/*.md
+  - angular/*.sh
+  - angular/*.js
+
+angular/navpages:
+  - angular/src/app/navpages/**/*
 
 test:
   - node/src/**/*.spec.js

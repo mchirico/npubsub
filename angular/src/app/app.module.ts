@@ -9,6 +9,9 @@ import { Page1Component } from './navpages/page1/page1.component';
 import { MainComponent } from './navpages/main/main.component';
 import { SearchComponent } from './navpages/search/search.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { AreaChartComponent } from './navpages/page0/area-chart/area-chart.component';
+import { StartChartComponent } from './navpages/page0/area-chart/start-chart/start-chart.component';
+import { DetailChartComponent } from './navpages/page0/area-chart/detail-chart/detail-chart.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
     Page1Component,
     MainComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    AreaChartComponent,
+    StartChartComponent,
+    DetailChartComponent
   ],
   imports: [
     BrowserModule,
