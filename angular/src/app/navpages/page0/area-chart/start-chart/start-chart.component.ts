@@ -94,8 +94,8 @@ export class StartChartComponent implements OnInit, OnChanges {
   }
 
   private setChartDimensions() {
-    let viewBoxHeight = 100;
-    let viewBoxWidth = 200;
+    const viewBoxHeight = 75;
+    const viewBoxWidth = 150;
     this.svg = d3.select(this.hostElement).append('svg')
       .attr('width', '100%')
       .attr('height', '100%')

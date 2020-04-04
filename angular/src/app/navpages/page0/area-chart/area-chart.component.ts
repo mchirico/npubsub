@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import {AfterContentInit, Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {StartChartComponent} from './start-chart/start-chart.component';
 import * as d3 from 'd3';
 
 export class DeliveryMetric {
@@ -22,10 +23,11 @@ export class DeliveryMetric {
   styleUrls: ['./area-chart.component.css']
 })
 
-export class AreaChartComponent implements OnInit, AfterContentInit {
-  displayedColumns = ['legend', 'stateDisplayValue', 'mean', 'stdDev'];
-  deliveryMetrics: DeliveryMetric[];
+export class AreaChartComponent implements OnInit, OnDestroy, AfterContentInit {
+  @ViewChild('startChart', {static: true}) chart: StartChartComponent;
   chartData = [];
+  deliveryMetrics: DeliveryMetric[];
+  refreshInterval;
 
   constructor() {
 
@@ -34,11 +36,33 @@ export class AreaChartComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    if (this.refreshInterval) {
+      clearInterval(this.refreshInterval);
+    }
+  }
+
   ngAfterContentInit() {
     this.initialize();
   }
+
+  initialize2() {
+    this.generateData();
+  }
+
   initialize() {
-    this.generateData()
+    if (this.refreshInterval) {
+      clearInterval(this.refreshInterval);
+    }
+    this.generateData();
+    this.chart.data = [...this.chartData];
+    this.refreshInterval = setInterval(() => {
+       if (document.hasFocus()) {
+        this.generateData();
+        this.chart.data = [...this.chartData];
+       }
+    }, 1000);
+
   }
 
   generateData() {
@@ -110,6 +134,7 @@ export class AreaChartComponent implements OnInit, AfterContentInit {
   }
 
 }
+
 export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
