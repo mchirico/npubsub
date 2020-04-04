@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { AreaChartComponent } from './navpages/page0/area-chart/area-chart.component';
 import { StartChartComponent } from './navpages/page0/area-chart/start-chart/start-chart.component';
 import { DetailChartComponent } from './navpages/page0/area-chart/detail-chart/detail-chart.component';
+import { HomeComponent } from './navpages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailChartComponent } from './navpages/page0/area-chart/detail-chart/d
     NavbarComponent,
     AreaChartComponent,
     StartChartComponent,
-    DetailChartComponent
+    DetailChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

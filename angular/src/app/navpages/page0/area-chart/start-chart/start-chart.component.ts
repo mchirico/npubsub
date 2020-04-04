@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 })
 export class StartChartComponent implements OnInit, OnChanges {
   @Input() transitionTime = 1000;
-  @Input() xmax = 45;
+  @Input() xmax = 55;
   @Input() ymax = 200;
   @Input() hticks = 60;
   @Input() data: number[];
@@ -21,7 +21,7 @@ export class StartChartComponent implements OnInit, OnChanges {
   colorScale; // D3 color provider
   x; // X-axis graphical coordinates
   y; // Y-axis graphical coordinates
-  colors = d3.scaleOrdinal(d3.schemeCategory10);
+  colors = d3.scaleOrdinal(d3.schemeBlues);
   bins; // Array of frequency distributions - one for each area chaer
   paths; // Path elements for each area chart
   area; // For D3 area function
@@ -94,8 +94,8 @@ export class StartChartComponent implements OnInit, OnChanges {
   }
 
   private setChartDimensions() {
-    const viewBoxHeight = 75;
-    const viewBoxWidth = 150;
+    const viewBoxHeight = 80;
+    const viewBoxWidth = 160;
     this.svg = d3.select(this.hostElement).append('svg')
       .attr('width', '100%')
       .attr('height', '100%')
@@ -150,7 +150,8 @@ export class StartChartComponent implements OnInit, OnChanges {
       this.g.append('text')
         .attr('text-anchor', 'middle')
         .attr('transform', 'translate(10,50) rotate(-90)')
-        .style('font-size', 8)
+        .style('font-size', 9)
+        .style('fill', 'darkOrange')
         .text('Frequency');
     }
   }
