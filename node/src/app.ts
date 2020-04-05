@@ -28,5 +28,8 @@ export const getApp = () => {
   app.get('/trainview', (_, res) => {
     getS$.subscribe(x => res.json(x));
   });
+
+  // Default ... keep last
+  app.use('*', express.static(angularDirectoryPath));
   return app;
 };
