@@ -21,7 +21,7 @@ export class StartChartComponent implements OnInit, OnChanges {
   colorScale; // D3 color provider
   x; // X-axis graphical coordinates
   y; // Y-axis graphical coordinates
-  colors = d3.scaleOrdinal(d3.schemeBlues);
+  colors = d3.scaleOrdinal(d3.schemeCategory10);
   bins; // Array of frequency distributions - one for each area chaer
   paths; // Path elements for each area chart
   area; // For D3 area function
