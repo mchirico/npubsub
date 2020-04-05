@@ -13,6 +13,7 @@ import { AreaChartComponent } from './navpages/page0/area-chart/area-chart.compo
 import { StartChartComponent } from './navpages/page0/area-chart/start-chart/start-chart.component';
 import { DetailChartComponent } from './navpages/page0/area-chart/detail-chart/detail-chart.component';
 import { HomeComponent } from './navpages/home/home.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HomeComponent } from './navpages/home/home.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
