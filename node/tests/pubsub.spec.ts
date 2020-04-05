@@ -14,10 +14,13 @@ describe('Create Sub', () => {
       .then(r => {
         console.log(r.name);
       })
-      .catch(console.error);
-    //expect(t).to.equal({});
-  });
+      .catch(err => {
+        expect(err.code).to.be.equal(6);
+      });
+  
 });
+})
+;
 
 describe('Create topic', function() {
   it('Create junk2', function(done) {
@@ -96,7 +99,6 @@ describe('Rxjs add 2', function() {
     );
   });
 });
-
 
 
 describe('listen', function() {
