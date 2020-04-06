@@ -13,4 +13,10 @@ describe('SearchService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should add', () => {
+    service.putTerm('a')
+    const r = service.getTerms()
+    expect(r).toEqual(['a']);
+  });
 });
