@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Noval', this.searchForm.value.search0)
+    console.log('Native val: ', this.searchForm.value.search0)
     this.searchService.putTerm(this.searchForm.value.search0);
     console.log('results: ', this.searchService.getTerms());
   }

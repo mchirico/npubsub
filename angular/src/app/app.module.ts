@@ -14,6 +14,7 @@ import { StartChartComponent } from './navpages/page0/area-chart/start-chart/sta
 import { DetailChartComponent } from './navpages/page0/area-chart/detail-chart/detail-chart.component';
 import { HomeComponent } from './navpages/home/home.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

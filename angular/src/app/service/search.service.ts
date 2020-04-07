@@ -11,7 +11,6 @@ export class SearchService {
   }
 
   putTerm(term: string) {
-    console.error('here...');
     this.searchTerms.push(term);
   }
 

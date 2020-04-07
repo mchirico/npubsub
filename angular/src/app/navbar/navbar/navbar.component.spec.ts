@@ -10,10 +10,9 @@ import {SearchService} from '../../service/search.service';
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
-  let el: DebugElement;
 
   let getQuoteSpy;
-  let s;
+  let searchServiceResult;
 
   beforeEach(async(() => {
 
@@ -38,13 +37,11 @@ describe('NavbarComponent', () => {
     component = fixture.componentInstance;
     // from the root injector
 
-    s = TestBed.inject(SearchService);
-    el = fixture.nativeElement.querySelector('form');
+    searchServiceResult = TestBed.inject(SearchService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    console.log(el);
     expect(component).toBeTruthy();
   });
 
@@ -60,8 +57,8 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
 
     component.onSubmit();
-    expect(s.putTerm.calls.count()).toBeGreaterThan(0);
-    expect(s.getTerms.calls.count()).toBeGreaterThan(0);
+    expect(searchServiceResult.putTerm.calls.count()).toBeGreaterThan(0);
+    expect(searchServiceResult.getTerms.calls.count()).toBeGreaterThan(0);
 
   });
 
