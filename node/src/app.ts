@@ -29,6 +29,9 @@ export const getApp = () => {
     getS$.subscribe(x => res.json(x));
   });
 
+  app.get('/trainviewp', (_, res) => {
+    getS$.subscribe(x => res.jsonp(x));
+  });
   // Default ... keep last
   app.use('*', express.static(angularDirectoryPath));
   return app;

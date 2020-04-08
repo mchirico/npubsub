@@ -25,6 +25,20 @@ describe('/trainview', () => {
     expect(res.status).to.equal(200);
   });
 });
+describe('/trainviewp', () => {
+  it(' trainviewp', async () => {
+    const app = getApp();
+    const res = await request(app).get('/trainviewp');
+    const allowOrigin = res.header['access-control-allow-origin'];
+    // Check header information for jsonp
+    expect(allowOrigin).to.equal('*');
+
+    const { lat } = res.body[0];
+    console.log(res.body[0].lat);
+    expect(+lat).to.gte(20);
+    expect(res.status).to.equal(200);
+  });
+});
 describe('/push/topic', () => {
   it(' topic', async () => {
     const app = getApp();

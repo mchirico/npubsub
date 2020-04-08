@@ -26,7 +26,7 @@ describe('BackendService', () => {
   });
 
 
-  it('be able to retrieve posts from the API bia GET', () => {
+  it('be able to retrieve posts from the API via GET', () => {
     const dummyPosts: Data[] = [{
       userId: '1',
       id: 1,
