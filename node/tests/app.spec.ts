@@ -39,6 +39,16 @@ describe('/trainviewp', () => {
     expect(res.status).to.equal(200);
   });
 });
+describe('/auth', () => {
+  it(' auth', async () => {
+    const app = getApp();
+    const res = await request(app).get('/auth');
+    const allowOrigin = res.header['access-control-allow-origin'];
+    // Check header information for jsonp
+    expect(allowOrigin).to.equal('*');
+    expect(res.status).to.equal(200);
+  });
+});
 describe('/push/topic', () => {
   it(' topic', async () => {
     const app = getApp();
