@@ -25,6 +25,14 @@ export const getApp = () => {
     res.json({ ok: true });
   });
 
+  app.use('/auth', (req, res) => {
+    const url = req.url.toString();
+    const header = req.rawHeaders.toString();
+    const data = { auth: '/auth', header: header, url: url };
+    publishMessage('topic-npubsub', JSON.stringify(data)).catch();
+    res.json({ ok: true });
+  });
+
   app.get('/trainview', (_, res) => {
     getS$.subscribe(x => res.json(x));
   });
